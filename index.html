@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get a Free Video For Your Empty Rental | Aditya Kuppa, ASVA Group</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #FAF7F1;
+    --bg-panel: #F1ECE2;
+    --ink: #1C2620;
+    --ink-soft: #4B564E;
+    --accent: #2F4739;
+    --accent-soft: #DCE6DE;
+    --gold: #B7902E;
+    --free: #C0392B;
+    --rule: #D8D0C0;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    font-size: 17px;
+  }
+
+  a { color: var(--accent); }
+
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  header.top { padding: 20px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  .wordmark { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.1rem; color: var(--accent); }
+  .wordmark small { font-family: 'Work Sans', sans-serif; font-weight: 400; font-size: 0.82rem; color: var(--ink-soft); }
+
+  .free-banner {
+    background: var(--free);
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+    padding: 10px 16px;
+  }
+
+  .hero { padding: 36px 0 6px; text-align: center; }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(2.1rem, 5.6vw, 3.1rem);
+    line-height: 1.08;
+    margin: 0 0 16px;
+  }
+  h1 .free-word { color: var(--free); }
+
+  .sub {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 52ch;
+    margin: 0 auto 26px;
+  }
+
+  .free-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 8px 18px;
+    border-radius: 30px;
+    margin-bottom: 32px;
+  }
+
+  .showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 8px; }
+  @media (max-width: 680px) { .showcase { grid-template-columns: 1fr; } }
+
+  .panel { background: var(--bg-panel); border: 1px solid var(--rule); border-radius: 8px; padding: 8px; cursor: pointer; position: relative; text-align: left; }
+  .panel:hover { border-color: var(--gold); }
+  .panel-inner { position: relative; aspect-ratio: 4 / 3; border-radius: 4px; overflow: hidden; background: #0c1410; }
+  .panel-label { position: absolute; top: 10px; left: 10px; background: rgba(28,38,32,0.75); color: #fff; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 10px; border-radius: 3px; z-index: 3; }
+
+  .carousel-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.9s ease; }
+  .carousel-img.active { opacity: 1; }
+
+  .video-embed-wrap { position: relative; }
+  .video-embed-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
+  .expand-hint { position: absolute; bottom: 10px; right: 10px; background: rgba(28,38,32,0.75); color: #fff; font-size: 0.72rem; padding: 5px 10px; border-radius: 3px; z-index: 3; }
+
+  .video-caption { font-size: 0.9rem; color: var(--ink-soft); text-align: center; margin: 0 0 40px; }
+
+  section.stats { border-top: 2px solid var(--rule); padding: 40px 0; text-align: center; }
+  .stats h2 { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.7rem; margin: 0 0 30px; }
+  .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; text-align: left; }
+  @media (max-width: 620px) { .stat-grid { grid-template-columns: 1fr; } }
+  .stat-card { background: var(--bg-panel); border: 1px solid var(--rule); border-radius: 8px; padding: 20px; }
+  .stat-big { font-family: 'Fraunces', serif; font-weight: 900; font-size: 2.2rem; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+  .stat-text { color: var(--ink-soft); font-size: 0.98rem; }
+
+  section.steps { border-top: 2px solid var(--rule); padding: 40px 0; }
+  .steps h2 { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.7rem; margin: 0 0 26px; text-align: center; }
+  .step-row { display: grid; grid-template-columns: 44px 1fr; gap: 16px; margin-bottom: 22px; }
+  .step-num {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.2rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step-body b { display: block; margin-bottom: 3px; font-size: 1.05rem; }
+  .step-body span { color: var(--ink-soft); }
+
+  section.cta {
+    border-top: 2px solid var(--rule);
+    padding: 44px 0 60px;
+    text-align: center;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    margin: 20px 0 40px;
+  }
+  .cta h2 { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.9rem; margin: 0 0 12px; }
+  .cta p { color: var(--ink-soft); max-width: 50ch; margin: 0 auto 26px; font-size: 1.05rem; }
+  .btn {
+    display: inline-block;
+    background: var(--free);
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 34px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  .btn:hover { background: #a53125; }
+  .contact-note { display: block; margin-top: 16px; font-size: 0.95rem; color: var(--ink-soft); }
+  .contact-note a { color: var(--ink); font-weight: 600; }
+
+  footer { padding: 22px 0 40px; font-size: 0.85rem; color: var(--ink-soft); text-align: center; }
+  footer a { color: var(--ink-soft); text-decoration: underline; }
+
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15, 20, 16, 0.9); z-index: 50; align-items: center; justify-content: center; padding: 24px; }
+  .modal-overlay.open { display: flex; }
+  .modal-box { background: var(--bg); border-radius: 10px; max-width: 920px; width: 100%; max-height: 92vh; overflow-y: auto; padding: 18px; }
+  .modal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .modal-head span { font-family: 'Fraunces', serif; font-size: 1rem; color: var(--ink); }
+  .close-btn { background: none; border: 1px solid var(--rule); border-radius: 6px; color: var(--ink); font-size: 0.85rem; padding: 6px 12px; cursor: pointer; }
+  .close-btn:hover { border-color: var(--gold); }
+
+  .modal-video { position: relative; aspect-ratio: 16 / 9; background: #0c1410; border-radius: 6px; overflow: hidden; margin-bottom: 14px; }
+  .modal-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  .filmstrip-label { font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 8px; }
+  .filmstrip { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; }
+  .thumb { position: relative; flex: 0 0 100px; height: 72px; border-radius: 5px; overflow: hidden; cursor: pointer; border: 2px solid transparent; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thumb.current { border-color: var(--gold); }
+  .thumb .zoom-btn { position: absolute; top: 3px; right: 3px; background: rgba(28,38,32,0.8); color: #fff; border: none; border-radius: 3px; width: 20px; height: 20px; font-size: 0.7rem; line-height: 20px; text-align: center; cursor: pointer; }
+
+  .photo-lightbox { display: none; position: fixed; inset: 0; background: rgba(10,14,11,0.95); z-index: 60; align-items: center; justify-content: center; padding: 30px; }
+  .photo-lightbox.open { display: flex; }
+  .photo-lightbox img { max-width: 92vw; max-height: 86vh; border-radius: 6px; }
+  .photo-lightbox .close-btn { position: absolute; top: 20px; right: 24px; background: #fff; }
+
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<div class="free-banner">100% FREE TO TRY — NO COST, NO CARD, NO CATCH</div>
+
+<div class="wrap">
+  <header class="top">
+    <div class="wordmark">Aditya Kuppa <small>— ASVA Group</small></div>
+  </header>
+
+  <section class="hero">
+    <h1>Get a <span class="free-word">FREE</span> video for your empty rental</h1>
+    <p class="sub">We turn the photos you already have into a walkthrough video. It's free to try, and it could help your listing rent faster.</p>
+    <div class="free-pill">✓ Totally free &nbsp;·&nbsp; ✓ Takes 2 days &nbsp;·&nbsp; ✓ No new photos needed</div>
+
+    <div class="showcase">
+      <div class="panel" id="panel-photos" tabindex="0" role="button" aria-label="Open photo gallery">
+        <span class="panel-label">The photos we used</span>
+        <div class="panel-inner" id="carousel"></div>
+      </div>
+      <div class="panel" id="panel-video" tabindex="0" role="button" aria-label="Open full video">
+        <span class="panel-label">The video we made</span>
+        <span class="expand-hint">Click for sound</span>
+        <div class="panel-inner video-embed-wrap">
+          <iframe id="preview-frame"
+            src="https://www.youtube.com/embed/0sU4fHYD-rc?autoplay=1&mute=1&loop=1&playlist=0sU4fHYD-rc&controls=0&modestbranding=1&rel=0&playsinline=1"
+            title="Sample walkthrough video" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <p class="video-caption">This is a real listing in Pittsburgh, PA. Same photos, turned into a video. Click either box to see the full thing.</p>
+  </section>
+
+  <section class="stats">
+    <h2>Why homes with video rent faster</h2>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-big">87% more</div>
+        <div class="stat-text">Listings with a video get way more views than listings with just photos.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-big">1 in 4</div>
+        <div class="stat-text">Renters now sign a lease without ever seeing the place in person — video is often the reason they feel safe doing that.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-big">300% more</div>
+        <div class="stat-text">Renters who watch a video are far more likely to book a showing or sign a lease.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-big">Big companies do this</div>
+        <div class="stat-text">Greystar, one of the largest apartment companies in the country, uses video to fill units faster and keep rent higher.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps">
+    <h2>How it works</h2>
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div class="step-body"><b>Send me a link to any empty listing</b><span>One you already have posted. No new photos needed.</span></div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div class="step-body"><b>I build the video</b><span>Using the photos already there. Takes about 2 days.</span></div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div class="step-body"><b>You get the video, free</b><span>Use it however you want. No cost, no catch. If you like it, we can talk about doing your other units too.</span></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Want one for your listing?</h2>
+    <p>It costs you nothing to try. Send a listing link and get your free video back in about 2 days.</p>
+    <a class="btn" href="mailto:aditya.kuppa@asvagroup.org?subject=Free%20video%20for%20our%20listing">Get My Free Video</a>
+    <span class="contact-note">or call/text <a href="tel:9727424637">(972) 742-4637</a></span>
+  </section>
+
+  <footer>
+    Aditya Kuppa · ASVA Group · <a href="mailto:aditya.kuppa@asvagroup.org">aditya.kuppa@asvagroup.org</a> · (972) 742-4637
+  </footer>
+</div>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-head">
+      <span>509 S. Highland Ave — full video</span>
+      <button class="close-btn" id="modal-close">Close ✕</button>
+    </div>
+    <div class="modal-video">
+      <div id="modal-player"></div>
+    </div>
+    <p class="filmstrip-label">Click a photo to jump the video to about that part. Click the ⤢ to see the photo full-size.</p>
+    <div class="filmstrip" id="filmstrip"></div>
+  </div>
+</div>
+
+<div class="photo-lightbox" id="photo-lightbox">
+  <button class="close-btn" id="lightbox-close">Close ✕</button>
+  <img id="lightbox-img" src="" alt="Property photo, full size">
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  const PHOTOS = [
+    "assets/photos/photo-01.jpg","assets/photos/photo-02.jpg","assets/photos/photo-03.jpg","assets/photos/photo-04.jpg",
+    "assets/photos/photo-05.jpg","assets/photos/photo-06.jpg","assets/photos/photo-07.jpg","assets/photos/photo-08.jpg",
+    "assets/photos/photo-09.jpg","assets/photos/photo-10.jpg","assets/photos/photo-11.jpg","assets/photos/photo-12.jpg",
+    "assets/photos/photo-13.jpg","assets/photos/photo-14.jpg","assets/photos/photo-15.jpg","assets/photos/photo-16.jpg",
+    "assets/photos/photo-17.jpg","assets/photos/photo-18.jpg","assets/photos/photo-19.jpg","assets/photos/photo-20.jpg"
+  ];
+  const VIDEO_ID = "0sU4fHYD-rc";
+
+  const carousel = document.getElementById('carousel');
+  PHOTOS.forEach((src, i) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.className = 'carousel-img' + (i === 0 ? ' active' : '');
+    img.alt = 'Listing photo ' + (i + 1);
+    carousel.appendChild(img);
+  });
+  let carouselIndex = 0;
+  const carouselImgs = () => carousel.querySelectorAll('.carousel-img');
+  setInterval(() => {
+    const imgs = carouselImgs();
+    imgs[carouselIndex].classList.remove('active');
+    carouselIndex = (carouselIndex + 1) % imgs.length;
+    imgs[carouselIndex].classList.add('active');
+  }, 2500);
+
+  const overlay = document.getElementById('modal-overlay');
+  const openModal = () => {
+    overlay.classList.add('open');
+    if (modalPlayer && modalPlayer.playVideo) {
+      modalPlayer.unMute();
+      modalPlayer.playVideo();
+    }
+  };
+  const closeModal = () => {
+    overlay.classList.remove('open');
+    if (modalPlayer && modalPlayer.pauseVideo) modalPlayer.pauseVideo();
+  };
+  document.getElementById('panel-photos').addEventListener('click', openModal);
+  document.getElementById('panel-video').addEventListener('click', openModal);
+  document.getElementById('panel-photos').addEventListener('keypress', e => { if (e.key === 'Enter') openModal(); });
+  document.getElementById('panel-video').addEventListener('keypress', e => { if (e.key === 'Enter') openModal(); });
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+
+  const lightbox = document.getElementById('photo-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const openLightbox = (src) => { lightboxImg.src = src; lightbox.classList.add('open'); };
+  document.getElementById('lightbox-close').addEventListener('click', () => lightbox.classList.remove('open'));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+
+  const filmstrip = document.getElementById('filmstrip');
+  PHOTOS.forEach((src, i) => {
+    const thumb = document.createElement('div');
+    thumb.className = 'thumb' + (i === 0 ? ' current' : '');
+    thumb.innerHTML = '<img src="' + src + '" alt="Photo ' + (i + 1) + '"><button class="zoom-btn" aria-label="View full size">⤢</button>';
+    thumb.addEventListener('click', (e) => {
+      if (e.target.classList.contains('zoom-btn')) {
+        e.stopPropagation();
+        openLightbox(src);
+        return;
+      }
+      filmstrip.querySelectorAll('.thumb').forEach(t => t.classList.remove('current'));
+      thumb.classList.add('current');
+      seekToPhoto(i);
+    });
+    filmstrip.appendChild(thumb);
+  });
+
+  let modalPlayer;
+  function onYouTubeIframeAPIReady() {
+    modalPlayer = new YT.Player('modal-player', {
+      videoId: VIDEO_ID,
+      playerVars: { rel: 0, modestbranding: 1, playsinline: 1 },
+      events: {
+        onReady: () => {
+          if (overlay.classList.contains('open')) {
+            modalPlayer.unMute();
+            modalPlayer.playVideo();
+          }
+        }
+      }
+    });
+  }
+  if (window.YT && window.YT.Player) {
+    onYouTubeIframeAPIReady();
+  }
+  function seekToPhoto(index) {
+    if (!modalPlayer || !modalPlayer.getDuration) return;
+    const duration = modalPlayer.getDuration();
+    if (!duration) return;
+    // Approximation: assumes the video covers rooms in roughly the same
+    // order as the photo set. Hand-adjust once you've reviewed actual timing.
+    const seekSeconds = ((index + 0.5) / PHOTOS.length) * duration;
+    modalPlayer.seekTo(seekSeconds, true);
+    modalPlayer.playVideo();
+  }
+</script>
+
+</body>
+</html>
