@@ -37,6 +37,23 @@
     margin-bottom: 32px;
   }
 
+  .hero-cta-wrap { position: relative; display: inline-block; margin: 6px 0 34px; }
+  .hero-cta-wrap .btn { position: relative; z-index: 2; }
+  .doodle { position: absolute; pointer-events: none; z-index: 1; }
+  .doodle-arrow { width: 46px; height: 46px; top: -42px; left: -48px; transform: rotate(-6deg); }
+  .doodle-star {
+    width: 22px; height: 22px; top: -16px; right: -28px;
+    animation: doodle-pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes doodle-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.75; }
+  }
+  @media (max-width: 480px) {
+    .doodle-arrow { width: 36px; height: 36px; top: -34px; left: -34px; }
+    .doodle-star { width: 18px; height: 18px; top: -12px; right: -18px; }
+  }
+
   .showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 8px; }
   @media (max-width: 680px) { .showcase { grid-template-columns: 1fr; } }
 
@@ -122,21 +139,21 @@
     <a class="brand-logo" href="https://www.asvagroup.org" target="_blank" rel="noopener">
       <img class="logo-img" src="assets/asva-logo.png" alt="ASVA Group">
     </a>
-    <div class="profile">
+    <a class="profile-link" href="https://www.linkedin.com/in/akuppa01/" target="_blank" rel="noopener" aria-label="Aditya Kuppa, CEO, ASVA Group, view LinkedIn profile">
       <div class="profile-text">
-        <a class="profile-name-link" href="https://www.linkedin.com/in/akuppa01/" target="_blank" rel="noopener">
-          Aditya Kuppa
-          <svg class="li-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/>
-          </svg>
-        </a>
+        <div class="profile-name">Aditya Kuppa</div>
         <div class="profile-title">CEO, ASVA Group</div>
       </div>
       <div class="profile-photo-wrap">
         <div class="profile-photo-fallback">AK</div>
-        <img class="profile-photo" src="assets/aditya-headshot.jpg" alt="Aditya Kuppa" onerror="this.style.display='none'">
+        <img class="profile-photo" src="assets/aditya-headshot.jpg" alt="" onerror="this.style.display='none'">
+        <span class="li-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/>
+          </svg>
+        </span>
       </div>
-    </div>
+    </a>
   </header>
 
   <nav class="site-nav">
@@ -149,6 +166,17 @@
     <h1>Turn your listing photos into a video that helps it <span class="accent-word">rent faster</span></h1>
     <p class="sub">Send the photos already on your listing. We turn them into a video walkthrough in about 2 days, at no cost to try.</p>
     <div class="hero-pill">✓ No cost to try &nbsp;·&nbsp; ✓ Ready in about 2 days &nbsp;·&nbsp; ✓ Uses your existing photos</div>
+
+    <div class="hero-cta-wrap">
+      <svg class="doodle doodle-arrow" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+        <path d="M6 4 C 20 2, 34 14, 30 34" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M20 29 L30 34 L26 23" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <a class="btn" href="contact.html">Get My Free Video</a>
+      <svg class="doodle doodle-star" viewBox="0 0 24 24" fill="var(--gold)" aria-hidden="true">
+        <path d="M12 1 L14.5 9.5 L23 12 L14.5 14.5 L12 23 L9.5 14.5 L1 12 L9.5 9.5 Z"/>
+      </svg>
+    </div>
 
     <div class="showcase">
       <div class="panel" id="panel-photos" tabindex="0" role="button" aria-label="Open photo gallery">
@@ -168,7 +196,7 @@
     <p class="video-caption">This is a real listing in Pittsburgh, PA. These are the same photos, turned into a video using AI. No film crew needed. Click either box to see the whole thing.</p>
 
     <div class="mid-cta">
-      <a class="btn" href="https://tally.so/r/xX1qMy" target="_blank" rel="noopener">Get My Free Video</a>
+      <a class="btn" href="contact.html">Get My Free Video</a>
       <span>Takes 30 seconds. No cost, no card.</span>
     </div>
   </section>
@@ -216,12 +244,12 @@
   <section class="cta">
     <h2>Want one for your listing?</h2>
     <p>It costs you nothing to try. Send a listing link and get your video back in about 2 days.</p>
-    <a class="btn" href="https://tally.so/r/xX1qMy" target="_blank" rel="noopener">Get My Free Video</a>
+    <a class="btn" href="contact.html">Get My Free Video</a>
     <span class="contact-note">or call/text <a href="tel:9727424637">(972) 742-4637</a></span>
   </section>
 
   <footer>
-    Aditya Kuppa · ASVA Group · <a href="mailto:akuppa01@gmail.com">akuppa01@gmail.com</a> · (972) 742-4637
+    Aditya Kuppa · ASVA Group · <a href="mailto:aditya.kuppa@asvagroup.org">aditya.kuppa@asvagroup.org</a> · (972) 742-4637
   </footer>
 </div>
 

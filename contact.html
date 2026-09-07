@@ -4,10 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | Aditya Kuppa, ASVA Group</title>
-<meta name="description" content="Book a call, or reach Aditya Kuppa directly by phone, text, or email.">
+<meta name="description" content="Tell us about your listing, or reach Aditya Kuppa directly by phone, text, email, or LinkedIn.">
 <link rel="stylesheet" href="assets/site.css">
 <style>
-  .contact-methods { border-top: 2px solid var(--rule); padding: 40px 0 10px; }
+  .tally-section { border-top: 2px solid var(--rule); padding: 32px 0 8px; }
+  .tally-wrap { background: var(--bg-panel); border: 1px solid var(--rule); border-radius: 10px; padding: 18px; }
+  .tally-wrap iframe { display: block; border: 0; width: 100%; }
+
+  .method-lead { text-align: center; color: var(--ink-soft); font-size: 0.95rem; margin: 6px 0 18px; }
+  .contact-methods { padding: 30px 0 10px; }
   .method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   @media (max-width: 680px) { .method-grid { grid-template-columns: 1fr; } }
   .method-card {
@@ -26,21 +31,21 @@
     <a class="brand-logo" href="https://www.asvagroup.org" target="_blank" rel="noopener">
       <img class="logo-img" src="assets/asva-logo.png" alt="ASVA Group">
     </a>
-    <div class="profile">
+    <a class="profile-link" href="https://www.linkedin.com/in/akuppa01/" target="_blank" rel="noopener" aria-label="Aditya Kuppa, CEO, ASVA Group, view LinkedIn profile">
       <div class="profile-text">
-        <a class="profile-name-link" href="https://www.linkedin.com/in/akuppa01/" target="_blank" rel="noopener">
-          Aditya Kuppa
-          <svg class="li-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/>
-          </svg>
-        </a>
+        <div class="profile-name">Aditya Kuppa</div>
         <div class="profile-title">CEO, ASVA Group</div>
       </div>
       <div class="profile-photo-wrap">
         <div class="profile-photo-fallback">AK</div>
-        <img class="profile-photo" src="assets/aditya-headshot.jpg" alt="Aditya Kuppa" onerror="this.style.display='none'">
+        <img class="profile-photo" src="assets/aditya-headshot.jpg" alt="" onerror="this.style.display='none'">
+        <span class="li-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/>
+          </svg>
+        </span>
       </div>
-    </div>
+    </a>
   </header>
 
   <nav class="site-nav">
@@ -51,16 +56,32 @@
 
   <section class="page-hero">
     <h1>Contact us</h1>
-    <p class="sub">The fastest way to reach me is a quick call. Text, call, or email work too.</p>
+    <p class="sub">Tell us about your listing below, or reach out directly.</p>
   </section>
 
-  <section class="cta">
-    <h2>Book a call</h2>
-    <p>Pick a time that works for you. We will look at a listing or two and figure out what makes sense.</p>
-    <a class="btn" href="https://calendly.com/ksaditya01/30min" target="_blank" rel="noopener">Book a Call</a>
+  <section class="tally-section">
+    <div class="tally-wrap">
+      <iframe data-tally-src="https://tally.so/embed/xX1qMy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        loading="lazy" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0"
+        title="Contact form"></iframe>
+    </div>
+    <script>
+      var d = document, w = "https://tally.so/widgets/embed.js",
+      v = function() {
+        if (typeof Tally !== "undefined") { Tally.loadEmbeds(); return; }
+        d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e) { e.src = e.dataset.tallySrc; });
+      };
+      if (typeof Tally !== "undefined") { v(); }
+      else if (d.querySelector('script[src="' + w + '"]') == null) {
+        var s = d.createElement("script");
+        s.src = w; s.onload = v; s.onerror = v;
+        d.body.appendChild(s);
+      } else { v(); }
+    </script>
   </section>
 
   <section class="contact-methods">
+    <p class="method-lead">Or reach out directly:</p>
     <div class="method-grid">
       <div class="method-card">
         <div class="method-label">Call or text</div>
@@ -68,7 +89,7 @@
       </div>
       <div class="method-card">
         <div class="method-label">Email</div>
-        <a href="mailto:akuppa01@gmail.com">akuppa01@gmail.com</a>
+        <a href="mailto:aditya.kuppa@asvagroup.org">aditya.kuppa@asvagroup.org</a>
       </div>
       <div class="method-card">
         <div class="method-label">LinkedIn</div>
@@ -78,7 +99,7 @@
   </section>
 
   <footer>
-    Aditya Kuppa · ASVA Group · <a href="mailto:akuppa01@gmail.com">akuppa01@gmail.com</a> · (972) 742-4637
+    Aditya Kuppa · ASVA Group · <a href="mailto:aditya.kuppa@asvagroup.org">aditya.kuppa@asvagroup.org</a> · (972) 742-4637
   </footer>
 </div>
 

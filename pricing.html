@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing | Aditya Kuppa, ASVA Group</title>
-<meta name="description" content="Three ways to work with us, based on how many units you're leasing. Every plan starts with a quick call.">
+<meta name="description" content="Three ways to work with us, based on how many units you're leasing. Pay per video, no subscription.">
 <link rel="stylesheet" href="assets/site.css">
 <style>
   .compare { border-top: 2px solid var(--rule); padding: 40px 0; }
@@ -17,6 +17,20 @@
   .compare-card li { margin-bottom: 8px; }
   .compare-card.us { border-color: var(--accent); background: var(--accent-soft); }
   .compare-card.us h3 { color: var(--accent); }
+
+  .compare-icon {
+    position: relative;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 14px;
+  }
+  .compare-icon svg { width: 22px; height: 22px; }
+  .dollar-badge {
+    position: absolute; right: -4px; bottom: -4px; width: 19px; height: 19px;
+    background: var(--free); color: #fff; border-radius: 50%; border: 2px solid var(--bg-panel);
+    font-size: 0.65rem; font-weight: 800; display: flex; align-items: center; justify-content: center;
+  }
 
   .tiers { border-top: 2px solid var(--rule); padding: 44px 0 8px; }
   .tiers h2 { text-align: center; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.6rem; margin: 0 0 8px; }
@@ -49,21 +63,21 @@
     <a class="brand-logo" href="https://www.asvagroup.org" target="_blank" rel="noopener">
       <img class="logo-img" src="assets/asva-logo.png" alt="ASVA Group">
     </a>
-    <div class="profile">
+    <a class="profile-link" href="https://www.linkedin.com/in/akuppa01/" target="_blank" rel="noopener" aria-label="Aditya Kuppa, CEO, ASVA Group, view LinkedIn profile">
       <div class="profile-text">
-        <a class="profile-name-link" href="https://www.linkedin.com/in/akuppa01/" target="_blank" rel="noopener">
-          Aditya Kuppa
-          <svg class="li-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/>
-          </svg>
-        </a>
+        <div class="profile-name">Aditya Kuppa</div>
         <div class="profile-title">CEO, ASVA Group</div>
       </div>
       <div class="profile-photo-wrap">
         <div class="profile-photo-fallback">AK</div>
-        <img class="profile-photo" src="assets/aditya-headshot.jpg" alt="Aditya Kuppa" onerror="this.style.display='none'">
+        <img class="profile-photo" src="assets/aditya-headshot.jpg" alt="" onerror="this.style.display='none'">
+        <span class="li-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/>
+          </svg>
+        </span>
       </div>
-    </div>
+    </a>
   </header>
 
   <nav class="site-nav">
@@ -74,13 +88,20 @@
 
   <section class="page-hero">
     <h1>Pricing</h1>
-    <p class="sub">Three ways to work with us, based on how many units you're leasing. Every plan starts with a quick call so we can look at your portfolio.</p>
+    <p class="sub">Three ways to work with us, based on how many units you're leasing. Pay per video, no subscription.</p>
   </section>
 
   <section class="compare">
     <h2>What this usually costs</h2>
     <div class="compare-grid">
       <div class="compare-card">
+        <div class="compare-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="6" width="13" height="12" rx="2"/>
+            <path d="M15 9.5l6-3.5v12l-6-3.5"/>
+          </svg>
+          <span class="dollar-badge">$</span>
+        </div>
         <h3>Hiring a videographer</h3>
         <ul>
           <li>$300 to $600 per unit for a standard walkthrough, editing included</li>
@@ -90,6 +111,11 @@
         </ul>
       </div>
       <div class="compare-card us">
+        <div class="compare-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2 L14 9 L21 12 L14 15 L12 22 L10 15 L3 12 L10 9 Z"/>
+          </svg>
+        </div>
         <h3>Working with us</h3>
         <ul>
           <li>No crew, no travel, no reshoot</li>
@@ -107,29 +133,29 @@
     <div class="tier-grid">
       <div class="tier-card">
         <div class="tier-name">Single Listing</div>
-        <div class="tier-for">One vacancy, no ongoing commitment.</div>
-        <div class="tier-price">$149 <small>per video</small></div>
+        <div class="tier-for">One vacancy, order it once.</div>
+        <div class="tier-price">$149 <small>per video, one time</small></div>
         <ul class="tier-list">
           <li>1 video, made from your existing photos</li>
           <li>Delivered in about 2 days</li>
           <li>One round of edits</li>
           <li>Yours to use anywhere, no restrictions</li>
         </ul>
-        <a class="btn" href="https://calendly.com/ksaditya01/30min" target="_blank" rel="noopener">Book a Call</a>
+        <a class="btn" href="contact.html">Get Started</a>
       </div>
 
       <div class="tier-card featured">
         <span class="tier-badge">Most common</span>
         <div class="tier-name">Leasing Team</div>
         <div class="tier-for">Regular turnover across a few properties.</div>
-        <div class="tier-price">$89 <small>per video, billed monthly</small></div>
+        <div class="tier-price">$89 <small>per video, order 5 or more</small></div>
         <ul class="tier-list">
           <li>Everything in Single Listing</li>
-          <li>5 videos a month to start, scales with you</li>
+          <li>Lower per-video rate at 5 or more, ordered whenever you need them</li>
           <li>Priority turnaround</li>
           <li>One point of contact for your whole team</li>
         </ul>
-        <a class="btn" href="https://calendly.com/ksaditya01/30min" target="_blank" rel="noopener">Book a Call</a>
+        <a class="btn" href="contact.html">Get Started</a>
       </div>
 
       <div class="tier-card">
@@ -140,16 +166,16 @@
           <li>Everything in Leasing Team</li>
           <li>Portfolio-wide volume rate</li>
           <li>Dedicated schedule during peak leasing season</li>
-          <li>One invoice across every property</li>
+          <li>One simple invoice for the batch</li>
         </ul>
-        <a class="btn" href="https://calendly.com/ksaditya01/30min" target="_blank" rel="noopener">Book a Call</a>
+        <a class="btn" href="contact.html">Get Started</a>
       </div>
     </div>
-    <p class="pricing-note">No contracts to start. We hop on a call, look at a few of your listings, and confirm turnaround before anything moves forward.</p>
+    <p class="pricing-note">No subscriptions and no contracts. Tell us about your listings and we will confirm turnaround before anything moves forward.</p>
   </section>
 
   <footer>
-    Aditya Kuppa · ASVA Group · <a href="mailto:akuppa01@gmail.com">akuppa01@gmail.com</a> · (972) 742-4637
+    Aditya Kuppa · ASVA Group · <a href="mailto:aditya.kuppa@asvagroup.org">aditya.kuppa@asvagroup.org</a> · (972) 742-4637
   </footer>
 </div>
 
