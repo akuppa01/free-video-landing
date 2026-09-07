@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Aditya Kuppa, ASVA Group</title>
+<meta name="description" content="Book a call, or reach Aditya Kuppa directly by phone, text, or email.">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .contact-methods { border-top: 2px solid var(--rule); padding: 40px 0 10px; }
+  .method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 680px) { .method-grid { grid-template-columns: 1fr; } }
+  .method-card {
+    background: var(--bg-panel); border: 1px solid var(--rule); border-radius: 10px;
+    padding: 22px; text-align: center;
+  }
+  .method-card .method-label { font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
+  .method-card a { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.05rem; color: var(--ink); text-decoration: none; }
+  .method-card a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand-logo" href="https://www.asvagroup.org" target="_blank" rel="noopener">
+      <img class="logo-img" src="assets/asva-logo.png" alt="ASVA Group">
+    </a>
+    <div class="profile">
+      <div class="profile-text">
+        <a class="profile-name-link" href="https://www.linkedin.com/in/akuppa01/" target="_blank" rel="noopener">
+          Aditya Kuppa
+          <svg class="li-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/>
+          </svg>
+        </a>
+        <div class="profile-title">CEO, ASVA Group</div>
+      </div>
+      <div class="profile-photo-wrap">
+        <div class="profile-photo-fallback">AK</div>
+        <img class="profile-photo" src="assets/aditya-headshot.jpg" alt="Aditya Kuppa" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="pricing.html" class="nav-link">Pricing</a>
+    <a href="contact.html" class="nav-link current">Contact</a>
+  </nav>
+
+  <section class="page-hero">
+    <h1>Contact us</h1>
+    <p class="sub">The fastest way to reach me is a quick call. Text, call, or email work too.</p>
+  </section>
+
+  <section class="cta">
+    <h2>Book a call</h2>
+    <p>Pick a time that works for you. We will look at a listing or two and figure out what makes sense.</p>
+    <a class="btn" href="https://calendly.com/ksaditya01/30min" target="_blank" rel="noopener">Book a Call</a>
+  </section>
+
+  <section class="contact-methods">
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="method-label">Call or text</div>
+        <a href="tel:9727424637">(972) 742-4637</a>
+      </div>
+      <div class="method-card">
+        <div class="method-label">Email</div>
+        <a href="mailto:akuppa01@gmail.com">akuppa01@gmail.com</a>
+      </div>
+      <div class="method-card">
+        <div class="method-label">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/akuppa01/" target="_blank" rel="noopener">akuppa01</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Aditya Kuppa · ASVA Group · <a href="mailto:akuppa01@gmail.com">akuppa01@gmail.com</a> · (972) 742-4637
+  </footer>
+</div>
+
+</body>
+</html>

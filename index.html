@@ -4,57 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Video Walkthroughs for Empty Rental Listings | Aditya Kuppa, ASVA Group</title>
+<link rel="stylesheet" href="assets/site.css">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Work+Sans:wght@400;500;600;700&display=swap');
-
-  :root {
-    --bg: #FAF7F1;
-    --bg-panel: #F1ECE2;
-    --ink: #1C2620;
-    --ink-soft: #4B564E;
-    --accent: #2F4739;
-    --accent-soft: #DCE6DE;
-    --gold: #B7902E;
-    --free: #C0392B;
-    --rule: #D8D0C0;
-  }
-
-  * { box-sizing: border-box; }
-
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Work Sans', sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    font-size: 17px;
-  }
-
-  a { color: var(--accent); }
-
-  .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
-
-  header.top { padding: 30px 0 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-  .brand-logo { display: flex; align-items: center; }
-  .logo-img { height: 38px; width: auto; display: block; }
-
-  .profile { display: flex; align-items: center; gap: 12px; }
-  .profile-text { text-align: right; line-height: 1.3; }
-  .profile-name { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1rem; color: var(--ink); }
-  .profile-title { font-size: 0.82rem; color: var(--ink-soft); }
-  .profile-photo-wrap { position: relative; width: 46px; height: 46px; flex: 0 0 auto; }
-  .profile-photo-fallback {
-    position: absolute; inset: 0; border-radius: 50%;
-    background: var(--accent); color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Fraunces', serif; font-weight: 700; font-size: 0.95rem;
-  }
-  .profile-photo {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    border-radius: 50%; object-fit: cover; border: 1px solid var(--rule);
-  }
-
   .hero { padding: 20px 0 6px; text-align: center; }
   h1 {
     font-family: 'Fraunces', serif;
@@ -140,33 +91,6 @@
   }
   .vr-note b { color: var(--ink); }
 
-  section.cta {
-    border-top: 2px solid var(--rule);
-    padding: 44px 0 60px;
-    text-align: center;
-    background: var(--accent-soft);
-    border-radius: 10px;
-    margin: 20px 0 40px;
-  }
-  .cta h2 { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.9rem; margin: 0 0 12px; }
-  .cta p { color: var(--ink-soft); max-width: 50ch; margin: 0 auto 26px; font-size: 1.05rem; }
-  .btn {
-    display: inline-block;
-    background: var(--free);
-    color: #fff;
-    text-decoration: none;
-    padding: 16px 34px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 1.15rem;
-  }
-  .btn:hover { background: #a53125; }
-  .contact-note { display: block; margin-top: 16px; font-size: 0.95rem; color: var(--ink-soft); }
-  .contact-note a { color: var(--ink); font-weight: 600; }
-
-  footer { padding: 22px 0 40px; font-size: 0.85rem; color: var(--ink-soft); text-align: center; }
-  footer a { color: var(--ink-soft); text-decoration: underline; }
-
   .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15, 20, 16, 0.9); z-index: 50; align-items: center; justify-content: center; padding: 24px; }
   .modal-overlay.open { display: flex; }
   .modal-box { background: var(--bg); border-radius: 10px; max-width: 920px; width: 100%; max-height: 92vh; overflow-y: auto; padding: 18px; }
@@ -189,8 +113,6 @@
   .photo-lightbox.open { display: flex; }
   .photo-lightbox img { max-width: 92vw; max-height: 86vh; border-radius: 6px; }
   .photo-lightbox .close-btn { position: absolute; top: 20px; right: 24px; background: #fff; }
-
-  :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 </style>
 </head>
 <body>
@@ -202,7 +124,12 @@
     </a>
     <div class="profile">
       <div class="profile-text">
-        <div class="profile-name">Aditya Kuppa</div>
+        <a class="profile-name-link" href="https://www.linkedin.com/in/akuppa01/" target="_blank" rel="noopener">
+          Aditya Kuppa
+          <svg class="li-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/>
+          </svg>
+        </a>
         <div class="profile-title">CEO, ASVA Group</div>
       </div>
       <div class="profile-photo-wrap">
@@ -211,6 +138,12 @@
       </div>
     </div>
   </header>
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-link current">Home</a>
+    <a href="pricing.html" class="nav-link">Pricing</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </nav>
 
   <section class="hero">
     <h1>Turn your listing photos into a video that helps it <span class="accent-word">rent faster</span></h1>
