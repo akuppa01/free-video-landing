@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get a Free Video For Your Empty Rental | Aditya Kuppa, ASVA Group</title>
+<title>AI Video Walkthroughs for Empty Rental Listings | Aditya Kuppa, ASVA Group</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Work+Sans:wght@400;500;600;700&display=swap');
 
@@ -35,21 +35,27 @@
 
   .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 
-  header.top { padding: 20px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-  .wordmark { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.1rem; color: var(--accent); }
-  .wordmark small { font-family: 'Work Sans', sans-serif; font-weight: 400; font-size: 0.82rem; color: var(--ink-soft); }
+  header.top { padding: 30px 0 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .brand-logo { display: flex; align-items: center; }
+  .logo-img { height: 38px; width: auto; display: block; }
 
-  .free-banner {
-    background: var(--free);
-    color: #fff;
-    text-align: center;
-    font-weight: 700;
-    font-size: 0.95rem;
-    letter-spacing: 0.03em;
-    padding: 10px 16px;
+  .profile { display: flex; align-items: center; gap: 12px; }
+  .profile-text { text-align: right; line-height: 1.3; }
+  .profile-name { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1rem; color: var(--ink); }
+  .profile-title { font-size: 0.82rem; color: var(--ink-soft); }
+  .profile-photo-wrap { position: relative; width: 46px; height: 46px; flex: 0 0 auto; }
+  .profile-photo-fallback {
+    position: absolute; inset: 0; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-weight: 700; font-size: 0.95rem;
+  }
+  .profile-photo {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    border-radius: 50%; object-fit: cover; border: 1px solid var(--rule);
   }
 
-  .hero { padding: 36px 0 6px; text-align: center; }
+  .hero { padding: 20px 0 6px; text-align: center; }
   h1 {
     font-family: 'Fraunces', serif;
     font-weight: 900;
@@ -57,7 +63,7 @@
     line-height: 1.08;
     margin: 0 0 16px;
   }
-  h1 .free-word { color: var(--free); }
+  h1 .accent-word { color: var(--free); }
 
   .sub {
     font-size: 1.15rem;
@@ -66,7 +72,7 @@
     margin: 0 auto 26px;
   }
 
-  .free-pill {
+  .hero-pill {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -95,7 +101,11 @@
   .video-embed-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
   .expand-hint { position: absolute; bottom: 10px; right: 10px; background: rgba(28,38,32,0.75); color: #fff; font-size: 0.72rem; padding: 5px 10px; border-radius: 3px; z-index: 3; }
 
-  .video-caption { font-size: 0.9rem; color: var(--ink-soft); text-align: center; margin: 0 0 40px; }
+  .video-caption { font-size: 0.9rem; color: var(--ink-soft); text-align: center; margin: 0 0 32px; }
+
+  .mid-cta { text-align: center; margin: 0 0 40px; }
+  .mid-cta .btn { font-size: 1.05rem; padding: 14px 30px; }
+  .mid-cta span { display: block; margin-top: 10px; font-size: 0.85rem; color: var(--ink-soft); }
 
   section.stats { border-top: 2px solid var(--rule); padding: 40px 0; text-align: center; }
   .stats h2 { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.7rem; margin: 0 0 30px; }
@@ -116,6 +126,19 @@
   }
   .step-body b { display: block; margin-bottom: 3px; font-size: 1.05rem; }
   .step-body span { color: var(--ink-soft); }
+
+  .vr-note {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0 auto 8px;
+    padding: 14px 18px;
+    background: var(--bg-panel);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+  }
+  .vr-note b { color: var(--ink); }
 
   section.cta {
     border-top: 2px solid var(--rule);
@@ -172,17 +195,27 @@
 </head>
 <body>
 
-<div class="free-banner">100% FREE TO TRY — NO COST, NO CARD, NO CATCH</div>
-
 <div class="wrap">
   <header class="top">
-    <div class="wordmark">Aditya Kuppa <small>— ASVA Group</small></div>
+    <a class="brand-logo" href="https://www.asvagroup.org" target="_blank" rel="noopener">
+      <img class="logo-img" src="assets/asva-logo.png" alt="ASVA Group">
+    </a>
+    <div class="profile">
+      <div class="profile-text">
+        <div class="profile-name">Aditya Kuppa</div>
+        <div class="profile-title">CEO, ASVA Group</div>
+      </div>
+      <div class="profile-photo-wrap">
+        <div class="profile-photo-fallback">AK</div>
+        <img class="profile-photo" src="assets/aditya-headshot.jpg" alt="Aditya Kuppa" onerror="this.style.display='none'">
+      </div>
+    </div>
   </header>
 
   <section class="hero">
-    <h1>Get a <span class="free-word">FREE</span> video for your empty rental</h1>
-    <p class="sub">We turn the photos you already have into a walkthrough video. It's free to try, and it could help your listing rent faster.</p>
-    <div class="free-pill">✓ Totally free &nbsp;·&nbsp; ✓ Takes 2 days &nbsp;·&nbsp; ✓ No new photos needed</div>
+    <h1>Turn your listing photos into a video that helps it <span class="accent-word">rent faster</span></h1>
+    <p class="sub">Send the photos already on your listing. We turn them into a video walkthrough in about 2 days, at no cost to try.</p>
+    <div class="hero-pill">✓ No cost to try &nbsp;·&nbsp; ✓ Ready in about 2 days &nbsp;·&nbsp; ✓ Uses your existing photos</div>
 
     <div class="showcase">
       <div class="panel" id="panel-photos" tabindex="0" role="button" aria-label="Open photo gallery">
@@ -190,7 +223,7 @@
         <div class="panel-inner" id="carousel"></div>
       </div>
       <div class="panel" id="panel-video" tabindex="0" role="button" aria-label="Open full video">
-        <span class="panel-label">The video we made</span>
+        <span class="panel-label">The AI video we made</span>
         <span class="expand-hint">Click for sound</span>
         <div class="panel-inner video-embed-wrap">
           <iframe id="preview-frame"
@@ -199,7 +232,12 @@
         </div>
       </div>
     </div>
-    <p class="video-caption">This is a real listing in Pittsburgh, PA. Same photos, turned into a video. Click either box to see the full thing.</p>
+    <p class="video-caption">This is a real listing in Pittsburgh, PA. These are the same photos, turned into a video using AI. No film crew needed. Click either box to see the whole thing.</p>
+
+    <div class="mid-cta">
+      <a class="btn" href="https://tally.so/r/xX1qMy" target="_blank" rel="noopener">Get My Free Video</a>
+      <span>Takes 30 seconds. No cost, no card.</span>
+    </div>
   </section>
 
   <section class="stats">
@@ -211,15 +249,15 @@
       </div>
       <div class="stat-card">
         <div class="stat-big">1 in 4</div>
-        <div class="stat-text">Renters now sign a lease without ever seeing the place in person — video is often the reason they feel safe doing that.</div>
+        <div class="stat-text">Many renters sign a lease without ever seeing the place in person. A video often helps them feel safe doing that.</div>
       </div>
       <div class="stat-card">
         <div class="stat-big">300% more</div>
-        <div class="stat-text">Renters who watch a video are far more likely to book a showing or sign a lease.</div>
+        <div class="stat-text">Renters who watch a video are much more likely to book a showing or sign a lease.</div>
       </div>
       <div class="stat-card">
         <div class="stat-big">Big companies do this</div>
-        <div class="stat-text">Greystar, one of the largest apartment companies in the country, uses video to fill units faster and keep rent higher.</div>
+        <div class="stat-text">Greystar is one of the biggest apartment companies in the country. They use video to fill units faster and charge more rent.</div>
       </div>
     </div>
   </section>
@@ -232,36 +270,38 @@
     </div>
     <div class="step-row">
       <div class="step-num">2</div>
-      <div class="step-body"><b>I build the video</b><span>Using the photos already there. Takes about 2 days.</span></div>
+      <div class="step-body"><b>Our AI builds the video</b><span>It turns your photos into a video tour. No film crew. No reshoot. Takes about 2 days.</span></div>
     </div>
     <div class="step-row">
       <div class="step-num">3</div>
-      <div class="step-body"><b>You get the video, free</b><span>Use it however you want. No cost, no catch. If you like it, we can talk about doing your other units too.</span></div>
+      <div class="step-body"><b>You get the finished video</b><span>Use it however you want. No cost, no catch. If you like it, we can talk about your other units too.</span></div>
     </div>
   </section>
 
+  <p class="vr-note"><b>Want to go further?</b> We can also make VR walkthroughs for your listing. Just ask when you reach out.</p>
+
   <section class="cta">
     <h2>Want one for your listing?</h2>
-    <p>It costs you nothing to try. Send a listing link and get your free video back in about 2 days.</p>
-    <a class="btn" href="mailto:aditya.kuppa@asvagroup.org?subject=Free%20video%20for%20our%20listing">Get My Free Video</a>
+    <p>It costs you nothing to try. Send a listing link and get your video back in about 2 days.</p>
+    <a class="btn" href="https://tally.so/r/xX1qMy" target="_blank" rel="noopener">Get My Free Video</a>
     <span class="contact-note">or call/text <a href="tel:9727424637">(972) 742-4637</a></span>
   </section>
 
   <footer>
-    Aditya Kuppa · ASVA Group · <a href="mailto:aditya.kuppa@asvagroup.org">aditya.kuppa@asvagroup.org</a> · (972) 742-4637
+    Aditya Kuppa · ASVA Group · <a href="mailto:akuppa01@gmail.com">akuppa01@gmail.com</a> · (972) 742-4637
   </footer>
 </div>
 
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal-box">
     <div class="modal-head">
-      <span>509 S. Highland Ave — full video</span>
+      <span>509 S. Highland Ave (full video)</span>
       <button class="close-btn" id="modal-close">Close ✕</button>
     </div>
     <div class="modal-video">
       <div id="modal-player"></div>
     </div>
-    <p class="filmstrip-label">Click a photo to jump the video to about that part. Click the ⤢ to see the photo full-size.</p>
+    <p class="filmstrip-label">Click a photo to jump to that part of the video. Click the ⤢ to see the photo full-size.</p>
     <div class="filmstrip" id="filmstrip"></div>
   </div>
 </div>
