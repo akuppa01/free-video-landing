@@ -24,7 +24,8 @@
   }
 
   .hero-pill {
-    display: inline-flex;
+    display: flex;
+    width: fit-content;
     align-items: center;
     gap: 8px;
     background: var(--accent-soft);
@@ -34,24 +35,24 @@
     font-size: 0.95rem;
     padding: 8px 18px;
     border-radius: 30px;
-    margin-bottom: 32px;
+    margin: 0 auto 40px;
   }
 
-  .hero-cta-wrap { position: relative; display: inline-block; margin: 6px 0 34px; }
+  .hero-cta-wrap { position: relative; display: block; width: fit-content; margin: 0 auto 44px; }
   .hero-cta-wrap .btn { position: relative; z-index: 2; }
   .doodle { position: absolute; pointer-events: none; z-index: 1; }
-  .doodle-arrow { width: 46px; height: 46px; top: -42px; left: -48px; transform: rotate(-6deg); }
+  .doodle-arrow { width: 42px; height: 42px; top: -36px; left: -40px; transform: rotate(-8deg); }
   .doodle-star {
-    width: 22px; height: 22px; top: -16px; right: -28px;
-    animation: doodle-pulse 2.4s ease-in-out infinite;
+    width: 20px; height: 20px; top: -14px; right: -24px;
+    animation: doodle-pulse 2.6s ease-in-out infinite;
   }
   @keyframes doodle-pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.15); opacity: 0.75; }
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1.18) rotate(8deg); opacity: 0.7; }
   }
   @media (max-width: 480px) {
-    .doodle-arrow { width: 36px; height: 36px; top: -34px; left: -34px; }
-    .doodle-star { width: 18px; height: 18px; top: -12px; right: -18px; }
+    .doodle-arrow { width: 32px; height: 32px; top: -28px; left: -28px; }
+    .doodle-star { width: 16px; height: 16px; top: -10px; right: -16px; }
   }
 
   .showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 8px; }
@@ -173,13 +174,13 @@
     <div class="hero-pill">✓ No cost to try &nbsp;·&nbsp; ✓ Ready in about 2 days &nbsp;·&nbsp; ✓ Uses your existing photos</div>
 
     <div class="hero-cta-wrap">
-      <svg class="doodle doodle-arrow" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-        <path d="M6 4 C 20 2, 34 14, 30 34" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M20 29 L30 34 L26 23" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg class="doodle doodle-arrow" viewBox="0 0 42 42" fill="none" aria-hidden="true">
+        <path d="M7 5 C 17 1, 33 7, 28 24" stroke="var(--free)" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M19 20 L28 24 L27 14" stroke="var(--free)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <a class="btn" href="contact.html">Get My Free Video</a>
       <svg class="doodle doodle-star" viewBox="0 0 24 24" fill="var(--gold)" aria-hidden="true">
-        <path d="M12 1 L14.5 9.5 L23 12 L14.5 14.5 L12 23 L9.5 14.5 L1 12 L9.5 9.5 Z"/>
+        <path d="M12 2 C13 8 16 11 22 12 C16 13 13 16 12 22 C11 16 8 13 2 12 C8 11 11 8 12 2 Z"/>
       </svg>
     </div>
 
@@ -261,7 +262,7 @@
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal-box">
     <div class="modal-head">
-      <span>509 S. Highland Ave (full video)</span>
+      <span>An apartment in Pittsburgh, PA (full video)</span>
       <button class="close-btn" id="modal-close">Close ✕</button>
     </div>
     <div class="modal-video">
@@ -311,6 +312,14 @@
     if (modalPlayer && modalPlayer.playVideo) {
       modalPlayer.unMute();
       modalPlayer.playVideo();
+    } else if (!modalPlayer && window.YT && window.YT.Player) {
+      // Created here, synchronously inside the click handler, so this counts
+      // as a direct result of the user's tap. Mobile browsers (iOS Safari in
+      // particular) block unmuted autoplay started from an async callback
+      // that isn't tied to a gesture like this one is.
+      createModalPlayer();
+    } else {
+      pendingOpen = true;
     }
   };
   const closeModal = () => {
@@ -349,22 +358,27 @@
   });
 
   let modalPlayer;
-  function onYouTubeIframeAPIReady() {
+  let pendingOpen = false;
+  function createModalPlayer() {
     modalPlayer = new YT.Player('modal-player', {
       videoId: VIDEO_ID,
-      playerVars: { rel: 0, modestbranding: 1, playsinline: 1 },
+      playerVars: { autoplay: 1, rel: 0, modestbranding: 1, playsinline: 1 },
       events: {
         onReady: () => {
-          if (overlay.classList.contains('open')) {
-            modalPlayer.unMute();
-            modalPlayer.playVideo();
-          }
+          modalPlayer.unMute();
+          modalPlayer.playVideo();
         }
       }
     });
   }
-  if (window.YT && window.YT.Player) {
-    onYouTubeIframeAPIReady();
+  // Required global callback name the YouTube iframe API looks for once it
+  // finishes loading. We don't build the player here on page load, only if
+  // someone already tried to open the modal before the API was ready.
+  function onYouTubeIframeAPIReady() {
+    if (pendingOpen) {
+      pendingOpen = false;
+      createModalPlayer();
+    }
   }
   function seekToPhoto(index) {
     if (!modalPlayer || !modalPlayer.getDuration) return;

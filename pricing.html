@@ -8,28 +8,28 @@
 <link rel="stylesheet" href="assets/site.css">
 <style>
   .compare { border-top: 2px solid var(--rule); padding: 40px 0; }
-  .compare h2 { text-align: center; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.6rem; margin: 0 0 26px; }
-  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  @media (max-width: 680px) { .compare-grid { grid-template-columns: 1fr; } }
-  .compare-card { background: var(--bg-panel); border: 1px solid var(--rule); border-radius: 10px; padding: 22px 22px 24px; }
-  .compare-card h3 { margin: 0 0 12px; font-family: 'Fraunces', serif; font-size: 1.15rem; }
-  .compare-card ul { margin: 0; padding-left: 20px; color: var(--ink-soft); }
-  .compare-card li { margin-bottom: 8px; }
-  .compare-card.us { border-color: var(--accent); background: var(--accent-soft); }
-  .compare-card.us h3 { color: var(--accent); }
+  .compare h2 { text-align: center; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.6rem; margin: 0 0 8px; }
+  .compare-sub { text-align: center; color: var(--ink-soft); margin: 0 0 28px; font-size: 0.98rem; }
 
-  .compare-icon {
-    position: relative;
-    width: 44px; height: 44px; border-radius: 50%;
-    background: var(--accent); color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 14px;
-  }
-  .compare-icon svg { width: 22px; height: 22px; }
-  .dollar-badge {
-    position: absolute; right: -4px; bottom: -4px; width: 19px; height: 19px;
-    background: var(--free); color: #fff; border-radius: 50%; border: 2px solid var(--bg-panel);
-    font-size: 0.65rem; font-weight: 800; display: flex; align-items: center; justify-content: center;
+  .compare-table { max-width: 640px; margin: 0 auto; }
+  .compare-head { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0 14px; margin-bottom: 10px; }
+  .compare-head span { text-align: center; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
+  .compare-head .head-us { color: var(--accent); }
+
+  .compare-row { background: var(--bg-panel); border: 1px solid var(--rule); border-radius: 10px; padding: 14px; margin-bottom: 10px; }
+  .compare-row-label { display: block; font-weight: 600; font-size: 0.92rem; margin-bottom: 10px; }
+  .compare-cells { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .cell { display: flex; align-items: flex-start; gap: 7px; font-size: 0.88rem; line-height: 1.35; padding: 6px 8px; border-radius: 6px; }
+  .cell.them { color: var(--ink-soft); }
+  .cell.us { color: var(--ink); font-weight: 600; background: var(--accent-soft); }
+  .mark { flex: 0 0 auto; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 800; margin-top: 1px; }
+  .mark.x { background: rgba(192,57,43,0.14); color: var(--free); }
+  .mark.check { background: rgba(47,71,57,0.16); color: var(--accent); }
+
+  .compare-note {
+    text-align: center; font-size: 0.9rem; color: var(--ink-soft);
+    max-width: 56ch; margin: 22px auto 0; padding: 12px 16px;
+    background: var(--bg-panel); border: 1px solid var(--rule); border-radius: 8px;
   }
 
   .tiers { border-top: 2px solid var(--rule); padding: 44px 0 8px; }
@@ -93,38 +93,55 @@
 
   <section class="compare">
     <h2>What this usually costs</h2>
-    <div class="compare-grid">
-      <div class="compare-card">
-        <div class="compare-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="6" width="13" height="12" rx="2"/>
-            <path d="M15 9.5l6-3.5v12l-6-3.5"/>
-          </svg>
-          <span class="dollar-badge">$</span>
-        </div>
-        <h3>Hiring a videographer</h3>
-        <ul>
-          <li>$300 to $600 per unit for a standard walkthrough, editing included</li>
-          <li>$600 to $1,500 or more for a cinematic package with drone footage</li>
-          <li>A new shoot every time a unit turns over</li>
-          <li>Apartments turn over at about 45% a year on average. On a 100-unit property, that is roughly 45 vacancies to shoot annually, or $13,500 to $27,000 a year in video alone</li>
-        </ul>
+    <p class="compare-sub">Same job, two ways to get it done.</p>
+    <div class="compare-table">
+      <div class="compare-head">
+        <span>Videographer</span>
+        <span class="head-us">Us</span>
       </div>
-      <div class="compare-card us">
-        <div class="compare-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2 L14 9 L21 12 L14 15 L12 22 L10 15 L3 12 L10 9 Z"/>
-          </svg>
+
+      <div class="compare-row">
+        <span class="compare-row-label">Cost per video</span>
+        <div class="compare-cells">
+          <span class="cell them"><span class="mark x">✕</span>$300 to $1,500+</span>
+          <span class="cell us"><span class="mark check">✓</span>As low as $59</span>
         </div>
-        <h3>Working with us</h3>
-        <ul>
-          <li>No crew, no travel, no reshoot</li>
-          <li>Made from the photos already on the listing</li>
-          <li>Ready in about 2 days</li>
-          <li>Priced well below a videographer at every tier below</li>
-        </ul>
+      </div>
+
+      <div class="compare-row">
+        <span class="compare-row-label">Turnaround</span>
+        <div class="compare-cells">
+          <span class="cell them"><span class="mark x">✕</span>1 to 3 weeks</span>
+          <span class="cell us"><span class="mark check">✓</span>About 2 days</span>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <span class="compare-row-label">Uses the photos you already have</span>
+        <div class="compare-cells">
+          <span class="cell them"><span class="mark x">✕</span>No, new shoot</span>
+          <span class="cell us"><span class="mark check">✓</span>Yes</span>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <span class="compare-row-label">Crew, travel, and scheduling</span>
+        <div class="compare-cells">
+          <span class="cell them"><span class="mark x">✕</span>Required</span>
+          <span class="cell us"><span class="mark check">✓</span>None</span>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <span class="compare-row-label">New shoot for every vacancy</span>
+        <div class="compare-cells">
+          <span class="cell them"><span class="mark x">✕</span>Every time</span>
+          <span class="cell us"><span class="mark check">✓</span>Never</span>
+        </div>
       </div>
     </div>
+
+    <p class="compare-note">Apartments turn over at about 45% a year on average. On a 100-unit property, that is roughly 45 vacancies a year. At videographer rates, that is $13,500 to $27,000 annually just for video.</p>
   </section>
 
   <section class="tiers">
